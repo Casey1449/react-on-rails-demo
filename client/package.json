@@ -2,7 +2,6 @@
   "name": "test-react-on-rails",
   "private": true,
   "scripts": {
-    "postinstall": "yarn link react-on-rails",
     "lint": "eslint --ext .js,.jsx .",
     "test": "yarn run build:test && rspec",
     "build:test": "yarn run build:test:client && yarn run build:test:server",
@@ -76,5 +75,5 @@
     "prettier-eslint-cli": "^4.7.1",
     "tape": "^4.7.0",
     "webpack-dev-server": "^2.6.1"
-  },
+  }
 }
