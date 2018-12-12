@@ -24,7 +24,7 @@ export default class HelloWorld extends React.Component {
   render() {
     return (
       <div>
-        <h3>
+        <h3 className="test">
           Hello, {this.state.name}!
         </h3>
         <hr />
