@@ -23,13 +23,17 @@ const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 const configPath = resolve('..', 'config');
 const { output, settings } = webpackConfigLoader(configPath);
 
+const hotReloadingUrl = output.publicPathWithHost;
+const hotReloadingPort = settings.dev_server.port;
+const hotReloadingHostname = settings.dev_server.host;
+
 const compiler = webpack(webpackConfig);
 
 const devServer = new WebpackDevServer(compiler, {
-  publicPath: output.publicPath,
   proxy: {
-    '*': output.publicPathWithHost,
+    '*': `http://${hotReloadingHostname}:${hotReloadingPort}`,
   },
+  publicPath: hotReloadingUrl,
   headers: {
     'Access-Control-Allow-Origin': '*',
   },
@@ -50,7 +54,7 @@ const devServer = new WebpackDevServer(compiler, {
   },
 });
 
-devServer.listen(settings.dev_server.port, settings.dev_server.host, err => {
+devServer.listen(hotReloadingPort, hotReloadingHostname, err => {
   if (err) console.error(err);
-  console.log(`=> 🔥  Webpack development server is running on ${output.publicPathWithHost}`);
+  console.log(`=> 🔥  Webpack development server is running on ${hotReloadingUrl}`);
 });

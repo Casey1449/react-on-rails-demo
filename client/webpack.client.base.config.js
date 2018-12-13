@@ -22,7 +22,7 @@ module.exports = {
     // This will contain the app entry points defined by
     // webpack.client.rails.hot.config and webpack.client.rails.build.config
     'app-bundle': [
-      './app/packs/hello-world-bundle',
+      './packs/hello-world-bundle',
     ],
   },
   resolve: {
