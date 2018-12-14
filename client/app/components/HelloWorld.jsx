@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import styles from '../assets/styles/main.css'
 
 export default class HelloWorld extends React.Component {
   static propTypes = {
@@ -24,8 +25,8 @@ export default class HelloWorld extends React.Component {
   render() {
     return (
       <div>
-        <h3 className="test">
-          Yo, {this.state.name}!
+        <h3 className={styles.test}>
+          popopopop, {this.state.name}!
         </h3>
         <hr />
         <form >
