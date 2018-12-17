@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from '../assets/styles/main.css'
+import styles from '../assets/styles/main.scss'
 
 export default class HelloWorld extends React.Component {
   static propTypes = {
@@ -24,13 +24,13 @@ export default class HelloWorld extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3 className={styles.test}>
-          popopopop, {this.state.name}!
+      <div className="styleWrapper">
+        <h3 className="test">
+          Howdy, {this.state.name}!
         </h3>
         <hr />
         <form >
-          <label htmlFor="name">
+          <label htmlFor="name" className={styles.localStyle}>
             Say hello to:
           </label>
           <input
